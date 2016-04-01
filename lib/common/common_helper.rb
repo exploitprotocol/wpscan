@@ -231,7 +231,7 @@ end
 # @return [ Integer ] The number of lines in the given file
 def count_file_lines(file)
   if windows?
-    `findstr /R /N "^" #{file.shellescape} | find /C ":"`.split[0].to_i
+    `findstr /R /N "^" #{file.shellescape} | C:\\Windows\\System32\\find.exe /C ":"`.split[0].to_i
   else
     `wc -l #{file.shellescape}`.split[0].to_i
   end
