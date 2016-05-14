@@ -1,6 +1,23 @@
 # Changelog
 ## Master
-[Work in progress](https://github.com/wpscanteam/wpscan/compare/2.9...master)
+[Work in progress](https://github.com/wpscanteam/wpscan/compare/2.9.1...master)
+
+## Version 2.9.1
+Released: 2016-05-06
+
+* Update to Ruby 2.3.1, drop older ruby support
+* New data file location
+* Added experimental Windows support
+* Display WordPress metadata on the detected version
+* Several small fixes
+
+WPScan Database Statistics:
+* Total vulnerable versions: 156
+* Total vulnerable plugins:  1324
+* Total vulnerable themes:   376
+* Total version vulnerabilities: 1998
+* Total plugin vulnerabilities:  2057
+* Total theme vulnerabilities:   449
 
 ## Version 2.9
 Released: 2015-10-15
@@ -137,7 +154,7 @@ New
 * Add Sucuri sponsor to banner
 * Add protocol to sucuri url in banner
 * Add response code to proxy error output
-* Add a statement about mendatory newlines at the end of list
+* Add a statement about mandatory newlines at the end of list
 * Give warning if default username 'admin' is still used
 * License amendment to make it more clear about value added usage
 
@@ -493,4 +510,3 @@ Fixed issues
 
 ## Version 2.1
 Released 2013-3-4
-

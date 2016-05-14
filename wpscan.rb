@@ -82,6 +82,10 @@ def main
 
     wp_target = WpTarget.new(wpscan_options.url, wpscan_options.to_h)
 
+    if wp_target.wordpress_hosted?
+      raise 'We do not support scanning *.wordpress.com hosted blogs'
+    end
+
     # Remote website up?
     unless wp_target.online?
       raise "The WordPress URL supplied '#{wp_target.uri}' seems to be down."
@@ -157,10 +161,6 @@ def main
     puts info("Started: #{start_time.asctime}")
     puts
 
-    if wp_target.wordpress_hosted?
-      puts critical('We do not support scanning *.wordpress.com hosted blogs')
-    end
-
     if wp_target.has_robots?
       puts info("robots.txt available under: '#{wp_target.robots_url}'")
 
@@ -219,6 +219,10 @@ def main
 
     if wp_target.upload_directory_listing_enabled?
       puts warning("Upload directory has directory listing enabled: #{wp_target.upload_dir_url}")
+    end
+
+    if wp_target.include_directory_listing_enabled?
+      puts warning("Includes directory has directory listing enabled: #{wp_target.includes_dir_url}")
     end
 
     enum_options = {

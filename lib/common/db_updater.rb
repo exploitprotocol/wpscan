@@ -22,7 +22,9 @@ class DbUpdater
     {
       ssl_verifyhost: 2,
       ssl_verifypeer: true,
-      accept_encoding: 'gzip, deflate'
+      accept_encoding: 'gzip, deflate',
+      timeout: 300,
+      connecttimeout: 20
     }
   end
 
@@ -99,7 +101,7 @@ class DbUpdater
         puts "  [i] Database File Checksum  : #{db_checksum}" if verbose
 
         unless dl_checksum == db_checksum
-          fail "#{filename}: checksums do not match"
+          fail "#{filename}: checksums do not match (local: #{dl_checksum} remote: #{db_checksum})"
         end
       rescue => e
         puts '  [i] Restoring Backup due to error' if verbose
